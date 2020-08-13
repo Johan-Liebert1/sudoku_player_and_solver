@@ -1,3 +1,9 @@
+'''
+This file is now redundant as every functionality has been copied to JS file
+but, it's the OG and still works. Feel free to make any changes to this file
+as you see fit for your needs.
+'''
+
 import time
 from termcolor import colored
 import random
