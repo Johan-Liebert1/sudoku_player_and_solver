@@ -3,7 +3,7 @@ let hintButton       = document.getElementById('hint')
 let clearButton      = document.getElementById('clear-board')
 var isBoxHighlighted = false
 
-let two_boards             =  return_one_board(0)
+let two_boards             = return_one_board(Math.floor(Math.random() * 50))
 var virgin_board           = JSON.stringify(two_boards[0])
 var current_board_unsolved = two_boards[0]
 var current_board_solved   = JSON.parse(two_boards[1])
@@ -112,23 +112,36 @@ function keypressed (event, row, col, current_cell) {
             if (event.keyCode !== 8){
             event.target.value = number
 
-            if (!check_number_validity(current_board_unsolved, Number(number), row, col))
+            if (!check_number_validity(current_board_unsolved, Number(number), row, col)){
+                current_board_unsolved[row][col] = Number(number)
                 current_cell.setAttribute("style", "color: red")
-
+            }
             else{
                 current_board_unsolved[row][col] = Number(number)
                 current_cell.setAttribute("style", "color: green")
             }
         }
 
-            else {
-                event.target.value = ''
-            }
+        else {
+            event.target.value = ''
+        }
         
         }
     }
+    if (!find_unfilled(current_board_unsolved)){
+        win_dialog = document.getElementById('you-win')
+        win_dialog.classList.remove('gameover-dialog')
 
-    console.log(event)
+        if (!hasPlayerWon()) {
+            win_dialog.innerText = "There's a mistake somewhere"
+            win_dialog.setAttribute('style', 'color: red; font-size: 36px;')
+        }
+
+        else {
+            win_dialog.innerText = "You Solved It"
+            win_dialog.setAttribute('style', 'color: #27ae60; font-size: 36px;')
+        }
+    }
 }
 
 const solve_current_board = () => {
@@ -164,3 +177,13 @@ const clear_board = () => {
 }
 
 clearButton.addEventListener('click', clear_board)
+
+const hasPlayerWon = () => {
+    for (let row = 0; row < 9; row++){
+        for (let col = 0; col < 9; col++){
+            if (current_board_unsolved[row][col] !== current_board_solved[row][col])
+                return false
+        }
+    }
+    return true
+}

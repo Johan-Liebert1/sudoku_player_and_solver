@@ -6,6 +6,7 @@
 }
 
 body {
+    padding-top: 80px;
     margin: 0 auto;
     background-color: rgb(14,22,29);
     height: 100vh;
@@ -13,9 +14,8 @@ body {
     position: relative;
 }
 
-
 #board {
-    margin: 150px auto;
+    margin: 150px auto 0 auto;
     width: 450px;
     height: 450px;
     display: grid;
@@ -30,6 +30,17 @@ body {
     left: 36.5%;
     width: 450px;
 }
+
+#you-win{
+    margin-bottom: -60px; 
+    color:white; 
+    text-align: center; 
+}
+
+.gameover-dialog {
+    display: none;
+}
+
 
 .cell {
     width: 50px;
