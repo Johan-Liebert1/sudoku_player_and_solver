@@ -1,17 +1,31 @@
 import time
 from termcolor import colored
+import random
 
-board = [
-    [0, 8, 5, 0, 0, 0, 2, 1, 0],
-    [0, 9, 4, 0, 1, 2, 0, 0, 3],
-    [0, 0, 0, 3, 0, 0, 7, 0, 4],
-    [5, 0, 3, 4, 0, 9, 0, 0, 0],
-    [0, 4, 0, 2, 0, 6, 0, 3, 0],
-    [0, 0, 0, 1, 0, 3, 9, 0, 7],
-    [6, 0, 8, 0, 0, 5, 0, 0, 0],
-    [1, 0, 0, 8, 4, 0, 3, 6, 0],
-    [0, 2, 7, 0, 0, 0, 8, 9, 0],
-]
+def generate_random_board(board, difficulty='medium'):
+    shown = 0
+
+    if difficulty == 'easy': shown = 60
+    elif difficulty == 'medium': shown = 45
+    else: shown = 35 
+    
+    count = 0
+    while count < shown:
+
+        rand_row = random.randrange(9)
+        rand_col = random.randrange(9)
+        number = random.randrange(1, 10)
+
+        if check_row_validity(board, number, rand_row) and \
+        check_col_validity(board, number, rand_col) and \
+        check_box_validity(board, number, (rand_row // 3, rand_col // 3)):
+            board[rand_row][rand_col] = number
+            count += 1
+
+    return board
+
+
+
 
 def print_board(board):
     string = ''
@@ -24,10 +38,19 @@ def print_board(board):
         for col in range(len(board)):
             # 3 spaces between characters
             if (col + 1) % 3 == 0:
-                string += str(board[row][col]) + ' | '
+                if board[row][col] == 0:
+                    string += str(board[row][col]) + ' | '
+                else:
+                    string += colored(str(board[row][col]), 'green') + ' | '
+
 
             else:
-                string += str(board[row][col]) + '   '
+                if board[row][col] == 0:
+                    string += str(board[row][col]) + '   '
+
+                else:
+                    string += colored(str(board[row][col]),'green') + '   '
+
     
     print(string + "\n\n")
 
@@ -62,7 +85,10 @@ def check_box_validity(board, number, box_number):
     return True
 
 
-def solve_board(board):
+def solve_board(board, recursion_level = 0):
+    if recursion_level > 800:
+        return False
+
     if not find_unfilled(board):
         return True
 
@@ -77,7 +103,16 @@ def solve_board(board):
 
             board[row][col] = i
 
-            if solve_board(board):
+            '''
+            Call solve_board to see if there are more unfilled spaces after adding in
+            the current 'i'. Then call solve_board on the new board that has the number 'i' put 
+            at the position [row][col] of the board.
+
+            If it didn't return True, it means there are still 0's in the board 
+            which is only possible if the validity functions failed, i.e. the board isn't completely 
+            solved. 
+            '''
+            if solve_board(board, recursion_level = recursion_level + 1):
                 return True
             
             board[row][col] = 0
@@ -94,9 +129,37 @@ def find_unfilled(board):
 
     return False
 
-start = time.time()
+def write_board_to_file(board):
+    
+    with open("board.js", "w") as file:
+        file.write("Board = " + str(board))
 
-solve_board(board)
-print_board(board)
+def main():
 
-print(colored('Finished in {} seconds' .format(time.time() - start), 'green'))
+    solveable_boards = []
+
+    while True:
+        board = [[0] * 9 for _ in range(9)]
+        # print_board(board)
+        generated_board = generate_random_board(board, 'medium')
+        # print_board(generated_board)
+        
+        isSolved = solve_board(generated_board)
+
+        if isSolved:
+            solveable_boards.append(generated_board)
+            with open('boards.txt', 'w') as file:
+                    file.write(str(solveable_boards))
+                    
+            if len(solveable_boards) == 50:
+                
+                break
+
+
+
+if __name__ == "__main__":
+    start = time.time()
+
+    main()
+
+    print(colored('Finished in {} seconds' .format(time.time() - start), 'green'))
