@@ -92,12 +92,12 @@ const find_unfilled = (board) => {
 }
 
 
-const print_board = (board) => {
-    for (i of board){
-        console.log(i)
-    }
-}
+// const print_board = (board) => {
+//     for (i of board){
+//         console.log(i)
+//     }
+// }
 
-solve_board(board_to_solve)
-print_board(board_to_solve)
+// solve_board(board_to_solve)
+// print_board(board_to_solve)
 

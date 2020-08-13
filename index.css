@@ -27,7 +27,8 @@ body {
 .buttons {
     position: fixed;
     top: 0;
-    left: 40%;
+    left: 36.5%;
+    width: 450px;
 }
 
 .cell {
@@ -58,4 +59,5 @@ input {
     color: white;
     text-align: center;
     font-size: 1.5rem;
+    cursor: none;
 }
