@@ -1,16 +1,12 @@
 let solveBoard       = document.getElementById('solve-board')
 let hintButton       = document.getElementById('hint')
 let clearButton      = document.getElementById('clear-board')
+let difficultyBtns   = document.getElementsByClassName('dbtns')
+let difficulty       = 'easy'
 var isBoxHighlighted = false
 
-let two_boards             = return_one_board(Math.floor(Math.random() * 50))
-var virgin_board           = JSON.stringify(two_boards[0])
-var current_board_unsolved = two_boards[0]
-var current_board_solved   = JSON.parse(two_boards[1])
+var virgin_board, current_board_solved, current_board_unsolved
 
-// 1. When solved, untouched pieces will be green
-// 2. Hinted will be Orange
-// 3. when a number is selected, outline the whole column and row
 
 const display_board = (current_board = current_board_unsolved, isBeingSolved = false, hint = []) => {
     console.log('hint = ', hint)
@@ -63,7 +59,57 @@ const display_board = (current_board = current_board_unsolved, isBeingSolved = f
     }
 }
 
-display_board()
+const get_boards = (diff) => {
+    console.log('inside get boards')
+    let two_boards         = return_one_board(Math.floor(Math.random() * 50), diff)
+    console.log(two_boards)
+    virgin_board           = JSON.stringify(two_boards[0])
+    current_board_unsolved = two_boards[0]
+    current_board_solved   = JSON.parse(two_boards[1])
+
+    display_board(current_board_unsolved)
+}
+
+get_boards(difficulty)
+
+const add_remove_fill = (id) => {
+    for (let i = 0; i < 3; i++){
+        if (i === id)
+            difficultyBtns[i].classList += ' filled '
+        else
+            difficultyBtns[i].classList.remove('filled')
+    }
+}
+
+for (let i = 0; i < 3; i++) {
+    difficultyBtns[i].addEventListener('click', () => {
+        
+        if (difficultyBtns[i].innerText.toLowerCase() === 'easy'){
+            difficulty = 'easy'
+            add_remove_fill(i)
+            get_boards(difficulty)
+        }
+
+        else if (difficultyBtns[i].innerText.toLowerCase() === 'medium'){
+            difficulty = 'medium'
+            add_remove_fill(i)
+            get_boards(difficulty)
+
+        }
+
+        else if (difficultyBtns[i].innerText.toLowerCase() === 'advanced'){
+            difficulty = 'advanced'
+            add_remove_fill(i)
+            get_boards(difficulty)
+
+        }
+
+    })
+}
+
+console.log(difficulty)
+
+
 
 inter = setInterval(() => {
     console.log('inside setinterval', inter)
@@ -187,3 +233,4 @@ const hasPlayerWon = () => {
     }
     return true
 }
+

@@ -5,6 +5,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
+button {
+    outline: none;
+    border: none;
+}
+
 body {
     padding-top: 80px;
     margin: 0 auto;
@@ -12,6 +17,8 @@ body {
     height: 100vh;
     width: 70%;
     position: relative;
+    color:white; 
+
 }
 
 #board {
@@ -32,8 +39,7 @@ body {
 }
 
 #you-win{
-    margin-bottom: -60px; 
-    color:white; 
+    margin-bottom: -70px; 
     text-align: center; 
 }
 
@@ -60,7 +66,7 @@ body {
 }
 
 .highlight {
-    box-shadow: 0 0 3px aqua;
+    box-shadow: 0 0 3px #0984e3;
 }
 
 input {
@@ -71,4 +77,25 @@ input {
     text-align: center;
     font-size: 1.5rem;
     cursor: none;
+}
+
+#select-difficulty {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 15%;
+    top: 45%;
+}
+
+.dbtns {
+    padding: 5px;
+    background-color: transparent;
+    border: 1.5px solid #0984e3;
+    border-radius: 5px;
+    color: white
+}
+
+.filled {
+    background-color: #0984e3;
 }
