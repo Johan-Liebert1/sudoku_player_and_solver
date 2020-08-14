@@ -51,5 +51,4 @@ const keypressedPart2 = (event, row, col, current_cell) => {
             current_cell.setAttribute("style", "color: #27ae60")
         }
     }
-    console.log(user_given_board)
 }

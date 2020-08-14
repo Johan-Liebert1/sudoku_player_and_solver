@@ -98,3 +98,8 @@ input {
 .filled {
     background-color: #0984e3;
 }
+
+#information {
+    margin-bottom: -50px;
+    text-align: center;
+}

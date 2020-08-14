@@ -6,9 +6,7 @@ var virgin_board, current_board_solved, current_board_unsolved
 
 
 const get_boards = (diff) => {
-    console.log('inside get boards')
     let two_boards         = return_one_board(Math.floor(Math.random() * 50), diff)
-    console.log(two_boards)
     virgin_board           = JSON.stringify(two_boards[0])
     current_board_unsolved = two_boards[0]
     current_board_solved   = JSON.parse(two_boards[1])
@@ -55,7 +53,6 @@ for (let i = 0; i < 3; i++) {
 
 
 inter = setInterval(() => {
-    console.log('inside setinterval', inter)
     let cells = document.getElementsByClassName('cell')
     if (cells.length === 81){
         clearInterval(inter)

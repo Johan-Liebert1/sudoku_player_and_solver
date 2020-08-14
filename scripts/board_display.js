@@ -6,7 +6,6 @@ const display_board = (
     ) => {
    
     if (!solvingUserBoard) {
-        console.log('inside display board')
 
         ptag = document.getElementById('you-win')
 

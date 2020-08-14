@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    color: white; 
+    text-align: center;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-image: url('./images/sudoku.jpg');
+    background-size: cover;
+}
+
+#overlay {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-container {
+    width: 800px;
+}
+
+
+

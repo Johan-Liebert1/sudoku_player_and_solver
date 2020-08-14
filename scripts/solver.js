@@ -46,15 +46,12 @@ const check_box_validity = (board, number, box_number) => {
 }
 
 const check_number_validity = (board, number, row, col) => {
-    // console.log('inside check validdity', board)
-    // console.log(row, col, number)
     return check_row_validity(board, number, row) && check_col_validity(board, number, col) && 
     check_box_validity(board, number, [Math.floor(row / 3), Math.floor(col / 3)])
 
 }
 
 const solve_board = (board) => {
-    // console.log('solve board called')
     if  (!find_unfilled(board))
         return true
 
