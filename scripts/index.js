@@ -1,4 +1,3 @@
-
 let difficultyBtns   = document.getElementsByClassName('dbtns')
 let difficulty       = 'easy'
 var isBoxHighlighted = false

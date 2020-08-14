@@ -1,9 +1,17 @@
-const display_board = (current_board = current_board_unsolved, isBeingSolved = false, hint = []) => {
+const display_board = (
+    current_board = current_board_unsolved, 
+    isBeingSolved = false, 
+    hint = [],
+    solvingUserBoard = false
+    ) => {
+   
+    if (!solvingUserBoard) {
+        console.log('inside display board')
 
-    ptag = document.getElementById('you-win')
+        ptag = document.getElementById('you-win')
 
-    ptag.classList.add('gameover-dialog')
-    
+        ptag.classList.add('gameover-dialog')
+    }
 
     if (document.getElementById('board') !== null){
         let bd = document.getElementById('board')
@@ -44,10 +52,16 @@ const display_board = (current_board = current_board_unsolved, isBeingSolved = f
                 cell.setAttribute('style', 'color:orange')
             }
 
-            cell.addEventListener('click', () => get_row_col(cell))
+            if (!solvingUserBoard){
+                cell.addEventListener('click', () => get_row_col(cell))
 
-            if (current_board[i][j] === 0)
-                cell.addEventListener('keydown', () => keypressed(event,i,j, cell))
+                if (current_board[i][j] === 0)
+                    cell.addEventListener('keydown', () => keypressed(event,i,j, cell))
+            }
+
+            else {
+                cell.addEventListener('keydown', () => keypressedPart2(event,i,j, cell))
+            }
 
             board.appendChild(cell)
         }

@@ -36,7 +36,8 @@ const give_hint = () => {
 
 }
 
-hintButton.addEventListener('click', give_hint)
+if (hintButton !== null)
+    hintButton.addEventListener('click', give_hint)
 
 
 const clear_board = () => {

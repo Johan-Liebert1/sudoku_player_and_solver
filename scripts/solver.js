@@ -1,14 +1,14 @@
-board_to_solve = [
-    [7,8,0,4,0,0,1,2,0],
-    [6,0,0,0,7,5,0,0,9],
-    [0,0,0,6,0,1,0,7,8],
-    [0,0,7,0,4,0,2,6,0],
-    [0,0,1,0,5,0,9,3,0],
-    [9,0,4,0,6,0,0,0,5],
-    [0,7,0,3,0,0,0,1,2],
-    [1,2,0,0,0,7,4,0,0],
-    [0,4,9,2,0,6,0,0,7]
-]
+// var board_to_solve = [
+//     [7,8,0,4,0,0,1,2,0],
+//     [6,0,0,0,7,5,0,0,9],
+//     [0,0,0,6,0,1,0,7,8],
+//     [0,0,7,0,4,0,2,6,0],
+//     [0,0,1,0,5,0,9,3,0],
+//     [9,0,4,0,6,0,0,0,5],
+//     [0,7,0,3,0,0,0,1,2],
+//     [1,2,0,0,0,7,4,0,0],
+//     [0,4,9,2,0,6,0,0,7]
+// ]
 
 const check_row_validity = (board, number, row) => {
 
@@ -54,17 +54,17 @@ const check_number_validity = (board, number, row, col) => {
 }
 
 const solve_board = (board) => {
-
+    // console.log('solve board called')
     if  (!find_unfilled(board))
         return true
 
     else
         lst = find_unfilled(board)
 
-    row = lst[0]
-    col = lst[1]
+    let row = lst[0]
+    let col = lst[1]
 
-    for (let i = 1; i < 10; i++){
+    for (let i = 1; i < 10; i++) {
 
         if (check_row_validity(board, i, row) && check_col_validity(board, i, col) && 
         check_box_validity(board, i, [Math.floor(row / 3), Math.floor(col / 3)])){
@@ -76,8 +76,8 @@ const solve_board = (board) => {
             
             board[row][col] = 0
         }
-        return false
     }
+    return false
 }
 
 const find_unfilled = (board) => {
@@ -92,12 +92,10 @@ const find_unfilled = (board) => {
 }
 
 
-// const print_board = (board) => {
-//     for (i of board){
-//         console.log(i)
-//     }
-// }
+const print_board = (board) => {
+    for (let i = 0 ; i < 9; i++){
+        console.log(board[i], '\n')
+    }
+}
 
-// solve_board(board_to_solve)
-// print_board(board_to_solve)
 
