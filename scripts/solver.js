@@ -1,15 +1,3 @@
-// var board_to_solve = [
-//     [7,8,0,4,0,0,1,2,0],
-//     [6,0,0,0,7,5,0,0,9],
-//     [0,0,0,6,0,1,0,7,8],
-//     [0,0,7,0,4,0,2,6,0],
-//     [0,0,1,0,5,0,9,3,0],
-//     [9,0,4,0,6,0,0,0,5],
-//     [0,7,0,3,0,0,0,1,2],
-//     [1,2,0,0,0,7,4,0,0],
-//     [0,4,9,2,0,6,0,0,7]
-// ]
-
 const check_row_validity = (board, number, row) => {
 
     for (let i = 0; i < board.length; i++){
@@ -51,7 +39,7 @@ const check_number_validity = (board, number, row, col) => {
 
 }
 
-const solve_board = (board) => {
+const solve_board = (board, showSteps = false) => {
     if  (!find_unfilled(board))
         return true
 
@@ -68,7 +56,7 @@ const solve_board = (board) => {
 
             board[row][col] = i
 
-            if (solve_board(board))
+            if (solve_board(board, showSteps))
                 return true
             
             board[row][col] = 0

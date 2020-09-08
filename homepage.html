@@ -4,28 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">    
     <link rel="stylesheet" href="homepage.css">
-    <title>Home</title>
+    <title>Play Sudoku</title>
 </head>
 <body>
-    <div id="overlay">
-        <div class='btn-container row'>
-            <div class="col mr-5 d-flex flex-column">
-                <button class='btn btn-lg btn-primary px-4'>
-                    <a href="index.html">Play Sudoku Now</a>
 
-                </button>
-                <p>Solve a randomly generated board yourself</p>
-            </div>
-
-            <div class='col d-flex flex-column'>
-                <button class='btn btn-lg btn-success'>
-                    <a href="solve.html">Solve a Sudoku Board</a>
-                </button>
-                <p>Have the website solve a board for you</p>
-            </div>
-        </div>
+    <div class="buttons row">
+        <button id="solve-board" class="btn btn-success col-4 mr-1">Solve This Board</button>
+        <button id="hint" class="btn btn-warning col-4 mr-1">Provide Hint</button>
+        <button id="clear-board" class="btn btn-danger col-3 mr-1">Clear Board</button>
     </div>
+
+    <p id="you-win" class="gameover-dialog"></p>
+
+    <div id="select-difficulty">
+        <p>Choose difficulty</p>
+        <button type = "button" class="difficulty filled dbtns mb-1">Easy</button>
+        <button type = "button" class="difficulty dbtns mb-1">Medium</button>
+        <button type = "button" class="difficulty dbtns">Advanced</button>
+    </div>
+
+    <div id="board"></div>
+    
+    <script src = "scripts/solver.js"></script>
+    <script src = 'scripts/board_display.js'></script>
+    <script src = 'scripts/inputs.js'></script>
+    <script src = 'scripts/click_listeners.js'></script>
+    <script src = "scripts/boards.js"></script>
+    <script src = "scripts/index.js"></script>
 </body>
 </html>

@@ -21,14 +21,18 @@ const clr_usr_brd = () => {
 clr_usr_brd()
 
 const slv_brd = () => {
-    solve_board(user_given_board)
+    solve_board(user_given_board, true)
+
     display_board(    
         current_board = user_given_board, 
         isBeingSolved = false, 
         hint = [],
         solvingUserBoard = true
     )
+  
 }
+    
+
 
 solveUserBoard.addEventListener('click', slv_brd)
 clearUserBoard.addEventListener('click', clr_usr_brd)

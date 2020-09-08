@@ -1,42 +1,105 @@
-* {
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
-    color: white; 
-    text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
-a {
-    color: white;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: none;
-    color: white;
+button {
+    outline: none;
+    border: none;
 }
 
 body {
+    padding-top: 80px;
+    margin: 0 auto;
+    background-color: rgb(14,22,29);
     height: 100vh;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    background-image: url('./images/sudoku.jpg');
-    background-size: cover;
+    width: 70%;
+    position: relative;
+    color:white; 
 }
 
-#overlay {
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.85);
+#board {
+    margin: 150px auto 0 auto;
+    width: 450px;
+    height: 450px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    column-gap: 0;
+    row-gap: 0;
+}
+
+.buttons {
+    position: fixed;
+    top: 0;
+    left: 36.5%;
+    width: 450px;
+}
+
+#you-win{
+    margin-bottom: -70px; 
+    text-align: center; 
+}
+
+.gameover-dialog {
+    display: none;
+}
+
+
+.cell {
+    width: 50px;
+    height: 50px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    cursor: default;
 }
 
-.btn-container {
-    width: 800px;
+.mar-btm {
+    border-bottom: 2px solid #0984e3;
 }
 
+.mar-right {
+    border-right: 2px solid #0984e3;
+}
 
+.highlight {
+    box-shadow: 0 0 10px #0984e3;
+}
 
+input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: none;
+}
+
+#select-difficulty {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 15%;
+    top: 45%;
+}
+
+.dbtns {
+    padding: 5px;
+    background-color: transparent;
+    border: 1.5px solid #0984e3;
+    border-radius: 5px;
+    color: white
+}
+
+.filled {
+    background-color: #0984e3;
+}
+
+#information {
+    margin-bottom: -50px;
+    text-align: center;
+}
