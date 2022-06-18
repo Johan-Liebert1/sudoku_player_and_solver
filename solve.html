@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">    
-    <link rel="stylesheet" href="homepage.css">
-    <title>Solve Board</title>
-</head>
-<body>
-    <div class="buttons row">
-        <button id="solve-user-board" class="btn btn-success col-4 mr-1">Solve This Board</button>
-        <button id="clear-user-board" class="btn btn-danger col-3 mr-1">Clear Board</button>
-    </div>
-    <p id = 'information'>
-        All the Board cells are inputs. Click on them and fill up the numbers. 
-        Then click on "Solve This Board" button and your board will be automagically
-        solved within seconds. 
-    </p>
-    <div id="board"></div>
-    
-    <script src = "scripts/solver.js"></script>
-    <script src = 'scripts/board_display.js'></script>
-    <script src = 'scripts/solve_sudoku.js'></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="homepage.css" />
+        <title>Solve Board</title>
+    </head>
+    <body>
+        <div class="buttons row">
+            <button id="solve-user-board" class="btn btn-success col-4 mr-1">
+                Solve This Board
+            </button>
+            <button id="clear-user-board" class="btn btn-danger col-3 mr-1">
+                Clear Board
+            </button>
+        </div>
+        <p id="information">
+            All the Board cells are inputs. Click on them and fill up the
+            numbers. Then click on "Solve This Board" button and your board will
+            be automagically solved within seconds.
+        </p>
+        <div id="board"></div>
+
+        <script src="scripts/solver.js"></script>
+        <script src="scripts/board_display.js"></script>
+        <script src="scripts/solve_sudoku.js"></script>
+    </body>
 </html>

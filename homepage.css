@@ -1,8 +1,8 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 button {
@@ -13,11 +13,11 @@ button {
 body {
     padding-top: 80px;
     margin: 0 auto;
-    background-color: rgb(14,22,29);
+    background-color: rgb(14, 22, 29);
     height: 100vh;
     width: 70%;
     position: relative;
-    color:white; 
+    color: white;
 }
 
 #board {
@@ -37,15 +37,14 @@ body {
     width: 450px;
 }
 
-#you-win{
-    margin-bottom: -70px; 
-    text-align: center; 
+#you-win {
+    margin-bottom: -70px;
+    text-align: center;
 }
 
 .gameover-dialog {
     display: none;
 }
-
 
 .cell {
     width: 50px;
@@ -92,7 +91,7 @@ input {
     background-color: transparent;
     border: 1.5px solid #0984e3;
     border-radius: 5px;
-    color: white
+    color: white;
 }
 
 .filled {
